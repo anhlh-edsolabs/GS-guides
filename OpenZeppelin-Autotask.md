@@ -23,7 +23,7 @@
 - Set execution frequency to a desired number of minute, hour, or day.
 - From the **Connect to a Relayer** dropdown list, select the relayer that was created on the previous step.
 ![image](https://user-images.githubusercontent.com/100549206/179154877-c0bfb3eb-1d69-4ee1-9a68-fc883a343fe1.png)
-- Copy the autotask code from */src/Autotask.js* and paste to **Code**. 
+- Copy the *[AutoTask code](/src/Autotask.js)* and paste to **Code**. 
 ![image](https://user-images.githubusercontent.com/100549206/179154983-4a288fb2-7d18-4e01-935f-b145408bd4de.png)
 
 - Update **_proxy_** and **_apiKey_** with your smart contract address and Polygon API key

@@ -23,7 +23,7 @@
     - Give an address the Upgrade role for upgrading contract
     - Restriction: **Owner**
 
-6. `addScheme(string memory schemeName, uint256 vestingDuration, uint256 vestingFrequency, SchemeType schemeType)
+6. `addScheme(string memory schemeName, uint256 vestingDuration, uint256 vestingFrequency, SchemeType schemeType)`
     - Create a vesting scheme with the following parameters:
       -  `schemeName`: Name of the vesting scheme
       -  `vestingDuration`: The duration of the vesting scheme in days, ie. 360

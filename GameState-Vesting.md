@@ -47,4 +47,4 @@
     - Query the information of a subscription specified by the given `subscriptionId`
     - Restriction: none
 
-10. 
+10. `

@@ -1,8 +1,10 @@
 # Coupon manager functions
 
-### I. Access Control
+### I. Main functions
 1. Owner role functions
-    - Can assign super admin
+    - `Assign user`:
+        - User address: `address`
+        - Role: `Role[Admin, SuperAdmin]`
     - Inherit all super admin and admin functions
 ---    
 2. Super Admin role functions
@@ -31,7 +33,7 @@
         - Campaign Id: `int`
         - Currencies: `[address]`
         - Mint price: `[int]`
-
+    - Inherit all Admin functions
 
 3. Admin functions
     - `Create coupon batch`:
@@ -43,3 +45,18 @@
         - Start delay: `timestamp` ?
         - Expiry: `timestamp`
     - `Get coupon batches by expiry status`: `=>[CouponBachID]`
+
+
+4. Public functions
+    - `BuyNFT`:
+        - NFT collection: `address`
+        - Currencies: `address`
+        - Coupon code: `couponCode`
+
+### II. Suggestions of coupon batch encryption
+1. Solution:
+    Merkle tree & merkle proof to verify the coupon code's validity
+
+2. Requirement:
+    - Backend service to create the merkle proof from the coupon batch and submit it to the smart contract
+    - Smart contract functions to verify the coupon code against the merkle proof.

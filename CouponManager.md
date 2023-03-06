@@ -4,10 +4,10 @@
 1. Owner role functions
     - `Assign user`:
         - User address: `address`
-        - Role: `Role[Admin, SuperAdmin]`
+        - Role: `Role[Admin, Operator]`
     - Inherit all super admin and admin functions
 ---    
-2. Super Admin role functions
+2. Admin role functions
     - `Create Campaign`:
         - Campaign name: `string`
         - Whitelisted NFT collections: `[address]`
@@ -23,27 +23,23 @@
     - `Set campaign status`:
         - Campaign Id: `int`
         - Status: `bool`
-    - `Get campaigns by status`: `=>[Campaign]`
-        - Status: `bool` (Active / Inactive)
-    - `Get coupon batches by status`: `=>[CouponBatchID]`
-        - Status: `bool`
-    - `Get coupon batch details`: `=>[Claimed coupon],[Unclaimed coupon]`
-        - CouponBatch Id: `int`
     - `Set whitelisted currencies`: ?
         - Campaign Id: `int`
         - Currencies: `[address]`
         - Mint price: `[int]`
-    - Inherit all Admin functions
+    - Inherit all Operator functions
 
-3. Admin functions
+3. Operator functions
     - `Create coupon batch`:
         - Campaign Id: `int`
-        - Coupon Batch: `[CouponCode]`
+        - Coupon Batch: `[Hashed_CouponCode]`
         - Multi-usage: `bool`
         - Discount: `int` (percentage; 0 - 100%)
         - Affiliate address: `[address]`
         - Start delay: `timestamp` ?
         - Expiry: `timestamp`
+        - Batch status: `bool`
+    - `Update coupon batch`:
     - `Get coupon batches by expiry status`: `=>[CouponBachID]`
 
 
@@ -53,10 +49,25 @@
         - Currencies: `address`
         - Coupon code: `couponCode`
 
+5. Utility functions
+    - `Get campaigns by status`: `=>[Campaign]`
+        - Status: `bool` (Active / Inactive)
+    - `Get coupon batches by status`: `=>[CouponBatchID]`
+        - Status: `bool`
+    - `Get coupon batch details`: `=>[Claimed coupon],[Unclaimed coupon]`
+        - CouponBatch Id: `int`
+    - `Verify coupon code`: `=>bool`
+        - CouponCode: `string`
+    - `Check coupon code previous usages`: `=>bool`
+        - CouponCode: `string`
+    - `Calculate payment`: `=>int`
+        - Currency: `address`
+        - Discount: `int`
+        - Commission: `int`
+        
+
 ### II. Suggestions of coupon batch encryption
 1. Solution:
-    Merkle tree & merkle proof to verify the coupon code's validity
 
 2. Requirement:
-    - Backend service to create the merkle proof from the coupon batch and submit it to the smart contract
-    - Smart contract functions to verify the coupon code against the merkle proof.
+    
